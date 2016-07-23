@@ -32,7 +32,7 @@ post '/ideas' do
   end
 end
 
-get 'ideas/:id' do
+get '/ideas/:id' do
   @idea = Idea.find(params[:id])
   erb :'ideas/show'
 end
@@ -48,7 +48,7 @@ delete '/ideas/:id' do
   redirect '/ideas'
 end
 
-get 'ideas/:id/edit' do
+get '/ideas/:id/edit' do
   @idea = Idea.find(params[:id])
   erb :'ideas/edit'
 end
@@ -60,7 +60,7 @@ put '/ideas/:id' do
     @filename = params[:idea][:picture][:filename]
 end
 
-@idea = IDea.find(params[:id])
+@idea = Idea.find(params[:id])
 
 if @idea.update_attributes(params[:idea])
   if @filename
